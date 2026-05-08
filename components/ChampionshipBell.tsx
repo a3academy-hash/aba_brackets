@@ -47,8 +47,8 @@ type BellImage = { src: string | null; alt: string; caption: string };
 
 const BELL_IMAGES: BellImage[] = [
   { src: '/images/bell1.jpg', alt: 'ABA Championship Bell front view', caption: 'The ABA Championship Bell' },
-  { src: '/images/bell2.jpg', alt: 'ABA Championship Bell detail',     caption: 'Built for champions'        },
-  { src: '/images/bell3.jpg', alt: 'ABA Championship Bell on display', caption: 'Only champions ring the bell' },
+  { src: '/images/bell2.jpg', alt: 'ABA Championship Bell detail',     caption: 'Only champions ring the bell.' },
+  { src: '/images/bell3.jpg', alt: 'ABA Championship Bell on display', caption: 'The trophy bell that the teams keep forever.' },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
