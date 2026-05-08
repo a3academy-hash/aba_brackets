@@ -46,9 +46,9 @@ const TRADITION_PARAGRAPHS: string[] = [
 type BellImage = { src: string | null; alt: string; caption: string };
 
 const BELL_IMAGES: BellImage[] = [
-  { src: null, alt: 'ABA Championship Bell front view', caption: 'The ABA Championship Bell' },
-  { src: null, alt: 'ABA Championship Bell detail',     caption: 'Built for champions'        },
-  { src: null, alt: 'ABA Championship Bell on display', caption: 'Only champions ring the bell' },
+  { src: null,                alt: 'ABA Championship Bell front view', caption: 'The ABA Championship Bell' },
+  { src: null,                alt: 'ABA Championship Bell detail',     caption: 'Built for champions'        },
+  { src: '/images/bell.jpg',  alt: 'ABA Championship Bell on display', caption: 'Only champions ring the bell' },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -127,12 +127,6 @@ function Hero() {
         <p className="mt-4 text-base sm:text-lg text-white/85 font-medium tracking-wide max-w-2xl mx-auto">
           {HERO.subtitle}
         </p>
-
-        {!HERO.imageSrc ? (
-          <p className="mt-8 inline-block text-[10px] uppercase tracking-wider text-white/55 border border-white/20 rounded px-2 py-1">
-            Hero image placeholder — set HERO.imageSrc in ChampionshipBell.tsx
-          </p>
-        ) : null}
       </div>
     </div>
   );

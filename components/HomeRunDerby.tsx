@@ -162,12 +162,6 @@ function Hero() {
         <p className="mt-3 text-sm sm:text-base lg:text-lg text-white/90 font-medium tracking-wide">
           {HERO.subtitle}
         </p>
-
-        {!HERO.imageSrc ? (
-          <p className="mt-6 inline-block text-[10px] uppercase tracking-wider text-white/60 border border-white/20 rounded px-2 py-1">
-            Hero photo placeholder — set HERO.imageSrc in HomeRunDerby.tsx
-          </p>
-        ) : null}
       </div>
     </div>
   );
