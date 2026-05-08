@@ -1,5 +1,7 @@
 import { BracketView } from '@/components/BracketView';
+import { ChampionshipBell } from '@/components/ChampionshipBell';
 import { DivisionTabs, TAB_KEYS, type TabKey } from '@/components/DivisionTabs';
+import { HomeRunDerby } from '@/components/HomeRunDerby';
 import { InfoPanel } from '@/components/InfoPanel';
 import { ScheduleGrid } from '@/components/ScheduleGrid';
 import { SiteHeader } from '@/components/SiteHeader';
@@ -20,16 +22,26 @@ export default async function HomePage({ searchParams }: { searchParams: SearchP
     <>
       <SiteHeader />
       <DivisionTabs active={active} />
-      <div className="flex-1 flex flex-col lg:flex-row">
-        <main className="flex-1 min-w-0 py-4">
-          {active === 'grid' ? (
-            <ScheduleGrid states={states} admin={false} />
-          ) : (
-            <BracketView division={active} state={states[active]} admin={false} />
-          )}
+      {active === 'derby' ? (
+        <main className="flex-1 min-w-0">
+          <HomeRunDerby />
         </main>
-        <InfoPanel />
-      </div>
+      ) : active === 'bell' ? (
+        <main className="flex-1 min-w-0">
+          <ChampionshipBell />
+        </main>
+      ) : (
+        <div className="flex-1 flex flex-col lg:flex-row">
+          <main className="flex-1 min-w-0 py-4">
+            {active === 'grid' ? (
+              <ScheduleGrid states={states} admin={false} />
+            ) : (
+              <BracketView division={active} state={states[active]} admin={false} />
+            )}
+          </main>
+          <InfoPanel />
+        </div>
+      )}
       <footer className="py-6 text-center text-xs text-muted border-t border-navy/10">
         ABA National Championship · {new Date().getFullYear()}
       </footer>
@@ -39,5 +51,5 @@ export default async function HomePage({ searchParams }: { searchParams: SearchP
 
 function parseTab(raw: string | undefined): TabKey {
   if (raw && (TAB_KEYS as readonly string[]).includes(raw)) return raw as TabKey;
-  return 'premier';
+  return 'derby';
 }

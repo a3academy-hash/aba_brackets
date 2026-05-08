@@ -1,5 +1,7 @@
 import { BracketView } from '@/components/BracketView';
+import { ChampionshipBell } from '@/components/ChampionshipBell';
 import { DivisionTabs, TAB_KEYS, type TabKey } from '@/components/DivisionTabs';
+import { HomeRunDerby } from '@/components/HomeRunDerby';
 import { ScheduleGrid } from '@/components/ScheduleGrid';
 import { SiteHeader } from '@/components/SiteHeader';
 import { getAllStates } from '@/lib/kv';
@@ -27,7 +29,11 @@ export default async function AdminPage({ searchParams }: { searchParams: Search
         </form>
       </div>
       <main className="max-w-screen-2xl w-full mx-auto py-4">
-        {active === 'grid' ? (
+        {active === 'derby' ? (
+          <HomeRunDerby />
+        ) : active === 'bell' ? (
+          <ChampionshipBell />
+        ) : active === 'grid' ? (
           <ScheduleGrid states={states} admin />
         ) : (
           <BracketView division={active} state={states[active]} admin />
@@ -39,5 +45,5 @@ export default async function AdminPage({ searchParams }: { searchParams: Search
 
 function parseTab(raw: string | undefined): TabKey {
   if (raw && (TAB_KEYS as readonly string[]).includes(raw)) return raw as TabKey;
-  return 'premier';
+  return 'derby';
 }
