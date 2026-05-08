@@ -46,9 +46,9 @@ const TRADITION_PARAGRAPHS: string[] = [
 type BellImage = { src: string | null; alt: string; caption: string };
 
 const BELL_IMAGES: BellImage[] = [
-  { src: null,                alt: 'ABA Championship Bell front view', caption: 'The ABA Championship Bell' },
-  { src: null,                alt: 'ABA Championship Bell detail',     caption: 'Built for champions'        },
-  { src: '/images/bell.jpg',  alt: 'ABA Championship Bell on display', caption: 'Only champions ring the bell' },
+  { src: '/images/bell1.jpg', alt: 'ABA Championship Bell front view', caption: 'The ABA Championship Bell' },
+  { src: '/images/bell2.jpg', alt: 'ABA Championship Bell detail',     caption: 'Built for champions'        },
+  { src: '/images/bell3.jpg', alt: 'ABA Championship Bell on display', caption: 'Only champions ring the bell' },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
