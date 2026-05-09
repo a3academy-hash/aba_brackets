@@ -30,7 +30,7 @@ const PARTICIPANTS: Participant[] = [
   { order: 7,  academy: 'DSC',        player1: 'Mekhi Bullock',      player2: 'Tyson Penepacker'  },
   { order: 8,  academy: 'CPCA',       player1: 'Aemed Nasser',       player2: 'Sebastian Rolon'   },
   { order: 9,  academy: 'GA Premier', player1: 'Yonathan Ramirez',   player2: 'Enyer Infante'     },
-  { order: 10, academy: 'A3',         player1: 'Sebastian Echeverry', player2: 'Connor Fulmino'   },
+  { order: 10, academy: 'A3',         player1: 'Sammy Echeverry', player2: 'Connor Fulmino'   },
   { order: 11, academy: 'P27',        player1: 'Bryce Mucica',       player2: 'Henkel Acevedo'    },
   { order: 12, academy: 'TNXL',       player1: 'Daniel Melendez',    player2: 'Alex Edisis'       },
 ];
@@ -85,7 +85,7 @@ const ROTATION: RotationRow[] = [
   { battingTeam: 'DSC',        hitters: 'Mekhi Bullock / Tyson Penepacker',    shagTeam: 'CPCA',       retrievalTeam: 'GA Premier', hypeTeam: 'DSC'        },
   { battingTeam: 'CPCA',       hitters: 'Aemed Nasser / Sebastian Rolon',      shagTeam: 'GA Premier', retrievalTeam: 'A3',         hypeTeam: 'CPCA'       },
   { battingTeam: 'GA Premier', hitters: 'Yonathan Ramirez / Enyer Infante',    shagTeam: 'A3',         retrievalTeam: 'P27',        hypeTeam: 'GA Premier' },
-  { battingTeam: 'A3',         hitters: 'Sebastian Echeverry / Connor Fulmino', shagTeam: 'P27',       retrievalTeam: 'TNXL',       hypeTeam: 'A3'         },
+  { battingTeam: 'A3',         hitters: 'Sammy Echeverry / Connor Fulmino', shagTeam: 'P27',       retrievalTeam: 'TNXL',       hypeTeam: 'A3'         },
   { battingTeam: 'P27',        hitters: 'Bryce Mucica / Henkel Acevedo',       shagTeam: 'TNXL',       retrievalTeam: 'Clubhouse',  hypeTeam: 'P27'        },
   { battingTeam: 'TNXL',       hitters: 'Daniel Melendez / Alex Edisis',       shagTeam: 'Clubhouse',  retrievalTeam: 'FTB',        hypeTeam: 'TNXL'       },
 ];
