@@ -2,6 +2,7 @@ import { BracketView } from '@/components/BracketView';
 import { ChampionshipBell } from '@/components/ChampionshipBell';
 import { DivisionTabs, TAB_KEYS, type TabKey } from '@/components/DivisionTabs';
 import { HomeRunDerby } from '@/components/HomeRunDerby';
+import { Rules } from '@/components/Rules';
 import { ScheduleGrid } from '@/components/ScheduleGrid';
 import { SiteHeader } from '@/components/SiteHeader';
 import { getAllStates } from '@/lib/kv';
@@ -33,6 +34,8 @@ export default async function AdminPage({ searchParams }: { searchParams: Search
           <HomeRunDerby />
         ) : active === 'bell' ? (
           <ChampionshipBell />
+        ) : active === 'rules' ? (
+          <Rules />
         ) : active === 'grid' ? (
           <ScheduleGrid states={states} admin />
         ) : (

@@ -2,9 +2,9 @@ import Link from 'next/link';
 import { DIVISIONS } from '@/lib/types';
 import type { Division } from '@/lib/types';
 
-export type TabKey = 'derby' | 'bell' | Division | 'grid';
+export type TabKey = 'derby' | 'bell' | Division | 'grid' | 'rules';
 // Order matters — first key is the default tab when no ?d= is provided.
-export const TAB_KEYS: readonly TabKey[] = ['derby', 'bell', ...DIVISIONS, 'grid'] as const;
+export const TAB_KEYS: readonly TabKey[] = ['derby', 'bell', ...DIVISIONS, 'grid', 'rules'] as const;
 
 const TAB_NAMES: Record<TabKey, string> = {
   derby: 'Home Run Derby',
@@ -13,6 +13,7 @@ const TAB_NAMES: Record<TabKey, string> = {
   prospect: 'Prospect',
   varsity: 'Varsity',
   grid: 'Grid',
+  rules: 'Rules',
 };
 
 type Props = {
