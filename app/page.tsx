@@ -3,6 +3,7 @@ import { ChampionshipBell } from '@/components/ChampionshipBell';
 import { DivisionTabs, TAB_KEYS, type TabKey } from '@/components/DivisionTabs';
 import { HomeRunDerby } from '@/components/HomeRunDerby';
 import { InfoPanel } from '@/components/InfoPanel';
+import { Rosters } from '@/components/Rosters';
 import { Rules } from '@/components/Rules';
 import { ScheduleGrid } from '@/components/ScheduleGrid';
 import { SiteHeader } from '@/components/SiteHeader';
@@ -34,6 +35,10 @@ export default async function HomePage({ searchParams }: { searchParams: SearchP
       ) : active === 'rules' ? (
         <main className="flex-1 min-w-0">
           <Rules />
+        </main>
+      ) : active === 'rosters' ? (
+        <main className="flex-1 min-w-0">
+          <Rosters />
         </main>
       ) : (
         <div className="flex-1 flex flex-col lg:flex-row">
