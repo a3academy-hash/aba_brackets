@@ -7,7 +7,7 @@
 
 const HERO = {
   title: 'The ABA Champion Does Not Lift a Trophy. They Ring the Bell.',
-  subtitle: 'Built for independence. Earned through discipline. Passed down by champions.',
+  subtitle: 'Built for independence. Passed down by champions.',
   // Optional: set a hero photo path (e.g. '/images/bell-hero.jpg') to replace
   // the gradient. Leave null for the gradient placeholder.
   imageSrc: null as string | null,
