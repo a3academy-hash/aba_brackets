@@ -762,6 +762,31 @@ const DSC_PROSPECT: Player[] = [
   { name: 'Tyson Penepacker' },
 ];
 
+// FTB Bulls ───────────────────────────────────────────────────────────────────
+// Single Varsity team. No adjacent FTB team in this system → no floaters.
+
+const FTB_VARSITY: Player[] = [
+  { name: 'Thearn Treasure' },
+  { name: 'Kendric Roldan' },
+  { name: 'Noah Rivera' },
+  { name: 'Parker Berkland' },
+  { name: 'Zak Sadiki' },
+  { name: 'Carter Rivera' },
+  { name: 'Henry Graser' },
+  { name: 'Gage Konopka' },
+  { name: 'Miguel Allegue' },
+  { name: 'Bryce Hayes' },
+  { name: 'Austin Knutson' },
+  { name: 'Jarrett Bowling' },
+  { name: 'Omaet Walker' },
+  { name: 'Diego Velazquez' },
+  { name: 'Christian Moore' },
+  { name: 'Ayden Gonzalez' },
+  { name: 'Elyan Acosta' },
+  { name: 'David Sidoti' },
+  { name: 'Juelz Sidoti' },
+];
+
 // ─────────────────────────────────────────────────────────────────────────────
 // Master rosters map
 // ─────────────────────────────────────────────────────────────────────────────
@@ -793,7 +818,7 @@ export const ROSTERS: Record<Division, Team[]> = {
     { teamId: 'varsity.CLUB',  shortName: 'Clubhouse', division: 'varsity', players: CLUBHOUSE_VARSITY, floaters: CLUBHOUSE_FLOATERS },
     { teamId: 'varsity.CPCA',  shortName: 'CPCA',      division: 'varsity', players: [] },
     { teamId: 'varsity.ECA',   shortName: 'ECA',       division: 'varsity', players: ECA_VARSITY, floaters: ECA_PROS_VARS_FLOATERS },
-    { teamId: 'varsity.FTB',   shortName: 'FTB',       division: 'varsity', players: [] },
+    { teamId: 'varsity.FTB',   shortName: 'FTB',       fullName: 'FTB Bulls',       division: 'varsity', players: FTB_VARSITY },
     { teamId: 'varsity.GPA',   shortName: 'GPA',       fullName: 'Georgia Premier', division: 'varsity', players: GPA_VARSITY, floaters: GPA_PROS_VARS_FLOATERS },
     { teamId: 'varsity.KINGS', shortName: 'KINGS',     fullName: 'Kingsmen',   division: 'varsity', players: KINGS_VARSITY, floaters: KINGSMEN_FLOATERS },
     { teamId: 'varsity.P27',   shortName: 'P27',       division: 'varsity', players: P27_VARSITY, floaters: P27_PROS_VARS_FLOATERS },
