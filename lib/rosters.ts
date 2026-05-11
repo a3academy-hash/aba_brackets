@@ -559,13 +559,97 @@ const TNXL_PREM_PROS_FLOATERS: Player[] = [
   { name: 'Jayden Flores',   primaryDivision: 'prospect' },
 ];
 
+// A3 ─────────────────────────────────────────────────────────────────────────
+// Source has separate "Floaters" blocks under Premier (5 Premier↔Prospect)
+// and between Prospect/Varsity (5 Prospect↔Varsity). No explicit primary
+// indicator on the Prem↔Pros set — defaulted all 5 to primary Premier.
+//
+// Note: Brayden Temperton was listed in BOTH the regular Prospect column AND
+// the Prospect↔Varsity floater block in the source. Kept him only as a
+// floater (primary Prospect) per the convention that floaters live in their
+// own list, not duplicated in `players`.
+
+const A3_PREMIER: Player[] = [
+  { name: 'Sammy Echeverry' },
+  { name: 'Ayson McIntosh' },
+  { name: 'Kaden Kenny' },
+  { name: 'Nate Roldan' },
+  { name: 'Vinny Lee' },
+  { name: 'Moises Gudino' },
+  { name: 'Miguel Roa' },
+  { name: 'Connor Fulmino' },
+  { name: 'Matthew Midyett' },
+  { name: 'Dillon Knight' },
+  { name: 'Bryan Alonso' },
+  { name: 'Grant Timmons' },
+  { name: 'Hayden Sladewski' },
+  { name: 'Parker Allman' },
+  { name: 'Jojo Deljevic' },
+  { name: 'Landon Serrano' },
+  { name: 'Isaiah Welch' },
+  { name: 'David Carioto' },
+];
+
+const A3_PROSPECT: Player[] = [
+  { name: 'Clay Eichlin' },
+  { name: 'Sebastian Echeverry' },
+  { name: 'Nick Brown' },
+  { name: 'Allen Soriano' },
+  { name: 'Julius Jessurun' },
+  { name: 'Jaden Hyde' },
+  { name: 'Logan Prince' },
+  { name: 'Leo Reina' },
+  { name: 'Forest Pepperkorn' },
+  { name: 'Austin Stalbird' },
+  { name: 'Sterling Reed' },
+];
+
+const A3_VARSITY: Player[] = [
+  { name: 'Heath Richardson' },
+  { name: 'Dylan Kolsen' },
+  { name: 'Gabe Messing' },
+  { name: 'Cyprian McIntosh' },
+  { name: 'Jacob Wolf' },
+  { name: 'Trevarus Albury' },
+  { name: 'Cooper Gunderson' },
+  { name: 'Alex Diamond' },
+  { name: 'Dom Kowall' },
+  { name: 'Braden Giacobbe' },
+  { name: 'Arthur Holland' },
+  { name: 'Kaleb Dees' },
+  { name: 'Daniel Darretta' },
+  { name: 'Noah Reagan' },
+  { name: 'Jax Nofsinger' },
+];
+
+const A3_PREM_PROS_FLOATERS: Player[] = [
+  { name: 'Trent Prevatt',  primaryDivision: 'premier' },
+  { name: 'Richy Marshall', primaryDivision: 'premier' },
+  { name: 'Jack Hurlburt',  primaryDivision: 'premier' },
+  { name: 'Jordan Combee',  primaryDivision: 'premier' },
+  { name: 'JL Gomez',       primaryDivision: 'premier' },
+];
+
+const A3_PROS_VARS_FLOATERS: Player[] = [
+  { name: 'Isaiah Morales',   primaryDivision: 'prospect' },
+  { name: 'Brayden Temperton', primaryDivision: 'prospect' },
+  { name: 'Jordan Ortiz',     primaryDivision: 'prospect' },
+  { name: 'Jeyden DeJesus',   primaryDivision: 'prospect' },
+  { name: 'Eric Garcia',      primaryDivision: 'prospect' },
+];
+
+const A3_PROSPECT_FLOATERS: Player[] = [
+  ...A3_PREM_PROS_FLOATERS,
+  ...A3_PROS_VARS_FLOATERS,
+];
+
 // ─────────────────────────────────────────────────────────────────────────────
 // Master rosters map
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const ROSTERS: Record<Division, Team[]> = {
   premier: [
-    { teamId: 'premier.A3',   shortName: 'A3',   division: 'premier', players: [] },
+    { teamId: 'premier.A3',   shortName: 'A3',   division: 'premier', players: A3_PREMIER, floaters: A3_PREM_PROS_FLOATERS },
     { teamId: 'premier.ECA',  shortName: 'ECA',  division: 'premier', players: ECA_PREMIER, floaters: ECA_PREM_PROS_FLOATERS },
     { teamId: 'premier.GPA',  shortName: 'GPA',  division: 'premier', players: [] },
     { teamId: 'premier.P27',  shortName: 'P27',  division: 'premier', players: P27_PREMIER, floaters: P27_PREM_PROS_FLOATERS },
@@ -574,7 +658,7 @@ export const ROSTERS: Record<Division, Team[]> = {
     { teamId: 'premier.WSA',  shortName: 'WSA',  fullName: 'Wellington', division: 'premier', players: WSA_PREMIER, floaters: WSA_PREM_PROS_FLOATERS },
   ],
   prospect: [
-    { teamId: 'prospect.A3',       shortName: 'A3',       division: 'prospect', players: [] },
+    { teamId: 'prospect.A3',       shortName: 'A3',       division: 'prospect', players: A3_PROSPECT, floaters: A3_PROSPECT_FLOATERS },
     { teamId: 'prospect.CPCA',     shortName: 'CPCA',     division: 'prospect', players: [] },
     { teamId: 'prospect.DSC',      shortName: 'DSC',      division: 'prospect', players: [] },
     { teamId: 'prospect.ECA',      shortName: 'ECA',      division: 'prospect', players: ECA_PROSPECT, floaters: ECA_PROSPECT_FLOATERS },
@@ -586,7 +670,7 @@ export const ROSTERS: Record<Division, Team[]> = {
     { teamId: 'prospect.WSA',      shortName: 'WSA',      fullName: 'Wellington', division: 'prospect', players: WSA_PROSPECT, floaters: WSA_PROSPECT_FLOATERS },
   ],
   varsity: [
-    { teamId: 'varsity.A3',    shortName: 'A3',        division: 'varsity', players: [] },
+    { teamId: 'varsity.A3',    shortName: 'A3',        division: 'varsity', players: A3_VARSITY, floaters: A3_PROS_VARS_FLOATERS },
     { teamId: 'varsity.CLUB',  shortName: 'Clubhouse', division: 'varsity', players: CLUBHOUSE_VARSITY, floaters: CLUBHOUSE_FLOATERS },
     { teamId: 'varsity.CPCA',  shortName: 'CPCA',      division: 'varsity', players: [] },
     { teamId: 'varsity.ECA',   shortName: 'ECA',       division: 'varsity', players: ECA_VARSITY, floaters: ECA_PROS_VARS_FLOATERS },
