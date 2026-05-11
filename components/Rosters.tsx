@@ -1,6 +1,6 @@
 import { DIVISIONS } from '@/lib/types';
 import type { Division } from '@/lib/types';
-import { DIVISION_LABEL, ROSTERS, type Player, type Team } from '@/lib/rosters';
+import { DIVISION_LABEL, FLOATER_LIMIT_PER_TEAM, ROSTERS, type Player, type Team } from '@/lib/rosters';
 
 const HERO = {
   eyebrow: 'Tournament Rosters',
@@ -70,7 +70,8 @@ function FloaterLegend() {
         A floater is a player who can play in two adjacent divisions —
         Premier↔Prospect or Prospect↔Varsity. Premier and Varsity are not
         adjacent, so floaters cannot cross between them. Each team is allowed
-        up to 5 floaters.
+        up to {FLOATER_LIMIT_PER_TEAM} floaters, listed in full at the bottom
+        of every team card they are eligible for.
       </p>
     </div>
   );
@@ -101,9 +102,8 @@ function DivisionSection({ division, teams }: { division: Division; teams: Team[
 
 function TeamCard({ team }: { team: Team }) {
   const display = team.fullName ?? team.shortName;
-  const floaters = team.players.filter((p) => p.isFloater);
-  const regulars = team.players.filter((p) => !p.isFloater);
-  const hasRoster = team.players.length > 0;
+  const floaters = team.floaters ?? [];
+  const hasRoster = team.players.length > 0 || floaters.length > 0;
 
   return (
     <article className="rounded-lg border border-navy/15 bg-white shadow-sm overflow-hidden flex flex-col">
@@ -116,8 +116,8 @@ function TeamCard({ team }: { team: Team }) {
       <div className="p-4 flex-1">
         {hasRoster ? (
           <div className="space-y-4">
-            {regulars.length > 0 ? (
-              <PlayerList players={regulars} />
+            {team.players.length > 0 ? (
+              <PlayerList players={team.players} />
             ) : null}
             {floaters.length > 0 ? (
               <FloaterList players={floaters} />
@@ -176,9 +176,9 @@ function PlayerRow({ player, highlightFloater }: { player: Player; highlightFloa
         {player.position ? (
           <span className="text-navy/55"> · {player.position}</span>
         ) : null}
-        {highlightFloater && player.floatTo ? (
+        {highlightFloater && player.primaryDivision ? (
           <span className="ml-1.5 text-[10px] font-bold uppercase tracking-wider text-aba-red">
-            ↕ {player.floatTo}
+            {DIVISION_LABEL[player.primaryDivision]}
           </span>
         ) : null}
         {player.notes ? (
@@ -190,11 +190,11 @@ function PlayerRow({ player, highlightFloater }: { player: Player; highlightFloa
 }
 
 function RosterSummary({ team }: { team: Team }) {
-  const total = team.players.length;
-  const floaters = team.players.filter((p) => p.isFloater).length;
+  const floaters = team.floaters?.length ?? 0;
+  const total = team.players.length + floaters;
   return (
     <div className="border-t border-navy/10 pt-2 text-[11px] font-semibold uppercase tracking-wider text-muted flex items-center justify-between">
-      <span>{total} players</span>
+      <span>{total} eligible</span>
       <span>{floaters} floater{floaters === 1 ? '' : 's'}</span>
     </div>
   );
