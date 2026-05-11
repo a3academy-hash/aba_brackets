@@ -6,7 +6,7 @@
 
 const HERO = {
   title: '2026 ABA Tag Team Home Run Derby',
-  subtitle: 'Monday Night at LakePoint  |  Championship Bell on the Line',
+  subtitle: 'Monday Night at LakePoint  |  Home Run Derby Belt on the Line',
   // Drop a real image into /public and put the path here, e.g. '/derby-hero.jpg'.
   // Leave null to keep the gradient placeholder.
   imageSrc: null as string | null,
@@ -47,7 +47,7 @@ const RULES: string[] = [
   'Each academy must provide its own pitcher for its hitters.',
   'Each academy must provide its own catcher, fully in catcher’s gear.',
   'The team with the most home runs wins.',
-  'The winning team earns the ABA Championship Bell.',
+  'The winning team earns the ABA Home Run Derby Belt.',
   'If the batter makes contact before the buzzer, the result of that batted ball counts.',
   'If the ball is still traveling toward the plate when the buzzer sounds and has not been contacted yet, it does not count.',
   'Players in the outfield may shag balls, but they may not rob home runs or attempt to bring balls back from over the fence.',
