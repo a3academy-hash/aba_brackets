@@ -1,6 +1,6 @@
 import { DIVISIONS } from '@/lib/types';
 import type { Division } from '@/lib/types';
-import { DIVISION_LABEL, FLOATER_LIMIT_PER_TEAM, ROSTERS, type Player, type Team } from '@/lib/rosters';
+import { DIVISION_LABEL, FLOATER_LIMIT_PER_PAIR, ROSTERS, type Player, type Team } from '@/lib/rosters';
 
 const HERO = {
   eyebrow: 'Tournament Rosters',
@@ -67,11 +67,14 @@ function FloaterLegend() {
         About Floaters
       </h2>
       <p className="mt-2 text-[14px] leading-relaxed text-navy/85">
-        A floater is a player who can play in two adjacent divisions —
+        A floater is a player eligible for two adjacent divisions —
         Premier↔Prospect or Prospect↔Varsity. Premier and Varsity are not
-        adjacent, so floaters cannot cross between them. Each team is allowed
-        up to {FLOATER_LIMIT_PER_TEAM} floaters, listed in full at the bottom
-        of every team card they are eligible for.
+        adjacent, so floaters cannot cross between them. Each adjacency pair
+        allows up to {FLOATER_LIMIT_PER_PAIR} floaters, listed at the bottom
+        of both team cards they are eligible for. An academy that fields all
+        three divisions can show up to {FLOATER_LIMIT_PER_PAIR * 2} floaters
+        on its Prospect card ({FLOATER_LIMIT_PER_PAIR} with each adjacent
+        division).
       </p>
     </div>
   );
