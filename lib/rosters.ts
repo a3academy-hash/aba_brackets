@@ -12,10 +12,10 @@
 // the adjacent division they may play up/down to.
 //
 // To add a player:
-//   { name: 'Last, First', jerseyNumber: 12, position: 'SS' }
+//   { name: 'First Last', jerseyNumber: 12, position: 'SS' }
 //
 // To mark a floater:
-//   { name: 'Last, First', isFloater: true, floatTo: 'prospect' }
+//   { name: 'First Last', isFloater: true, floatTo: 'prospect' }
 // ─────────────────────────────────────────────────────────────────────────────
 
 import type { Division, TeamId } from './types';
@@ -56,13 +56,85 @@ export const FLOAT_ADJACENCY: Record<Division, readonly Division[]> = {
 
 export const FLOATER_LIMIT_PER_TEAM = 5;
 
+export const DIVISION_LABEL: Record<Division, string> = {
+  premier: 'Premier',
+  prospect: 'Prospect',
+  varsity: 'Varsity',
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Academy rosters
+// ─────────────────────────────────────────────────────────────────────────────
+
+// PDG ─────────────────────────────────────────────────────────────────────────
+// Floaters (5 total, all Premier↔Prospect):
+//   Premier → Prospect: Damian Sasser, Jonathan Vousboukis
+//   Prospect → Premier: Grant Shifflet, Dawson Tuell, Alfred Seaman
+
+const PDG_PREMIER: Player[] = [
+  { name: 'Wesley Hall' },
+  { name: 'Lawson McLeod' },
+  { name: 'Tyler Smith' },
+  { name: 'Charles Tobler' },
+  { name: 'Charlie Greiner' },
+  { name: 'Tyler Townsend' },
+  { name: 'Ryan Lemaire' },
+  { name: 'Colin Barrett' },
+  { name: 'Ty McGuirk' },
+  { name: 'JT Thompson' },
+  { name: 'Jerome Fortier' },
+  { name: 'Damian Sasser', isFloater: true, floatTo: 'prospect' },
+  { name: 'Jonathan Vousboukis', isFloater: true, floatTo: 'prospect' },
+  { name: 'Carsten Hamilton' },
+  { name: 'Chase Colangelo' },
+  { name: 'Colin Francis' },
+  { name: 'Jacob Barbour' },
+  { name: 'Eli Rankin' },
+  { name: 'Mason Miller' },
+  { name: 'Justin Lee' },
+  { name: 'Zavion Jackson' },
+  { name: 'Jaxson Roberts' },
+  { name: 'Reggie Thomas' },
+];
+
+const PDG_PROSPECT: Player[] = [
+  { name: 'Tyrone Leach' },
+  { name: 'Gavin Larson' },
+  { name: 'Kain Castronuvo' },
+  { name: 'Logan Adams' },
+  { name: 'Sean-Alex Polanco' },
+  { name: 'Caleb Mastin' },
+  { name: 'Grant Shifflet', isFloater: true, floatTo: 'premier' },
+  { name: 'Noah Fletcher' },
+  { name: 'Mikey Marange' },
+  { name: 'Mason Parker' },
+  { name: 'Michael Burke' },
+  { name: 'Michael Carter' },
+  { name: 'Joey Fiore' },
+  { name: 'Ryan Kim' },
+  { name: 'Cole Sheppard' },
+  { name: 'Dawson Tuell', isFloater: true, floatTo: 'premier' },
+  { name: 'Chris Heinrich' },
+  { name: 'Jude Hardy' },
+  { name: 'Cooper Mong' },
+  { name: 'Keagan Green' },
+  { name: 'Bryce Radcliffe' },
+  { name: 'Danny Kim' },
+  { name: 'Alfred Seaman', isFloater: true, floatTo: 'premier' },
+  { name: 'Lincoln Whitman' },
+];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Master rosters map
+// ─────────────────────────────────────────────────────────────────────────────
+
 export const ROSTERS: Record<Division, Team[]> = {
   premier: [
     { teamId: 'premier.A3',   shortName: 'A3',   division: 'premier', players: [] },
     { teamId: 'premier.ECA',  shortName: 'ECA',  division: 'premier', players: [] },
     { teamId: 'premier.GPA',  shortName: 'GPA',  division: 'premier', players: [] },
     { teamId: 'premier.P27',  shortName: 'P27',  division: 'premier', players: [] },
-    { teamId: 'premier.PDG',  shortName: 'PDG',  division: 'premier', players: [] },
+    { teamId: 'premier.PDG',  shortName: 'PDG',  division: 'premier', players: PDG_PREMIER },
     { teamId: 'premier.TNXL', shortName: 'TNXL', division: 'premier', players: [] },
     { teamId: 'premier.WSA',  shortName: 'WSA',  division: 'premier', players: [] },
   ],
@@ -74,7 +146,7 @@ export const ROSTERS: Record<Division, Team[]> = {
     { teamId: 'prospect.GPA',      shortName: 'GPA',      division: 'prospect', players: [] },
     { teamId: 'prospect.Kingsmen', shortName: 'Kingsmen', division: 'prospect', players: [] },
     { teamId: 'prospect.P27',      shortName: 'P27',      division: 'prospect', players: [] },
-    { teamId: 'prospect.PDG',      shortName: 'PDG',      division: 'prospect', players: [] },
+    { teamId: 'prospect.PDG',      shortName: 'PDG',      division: 'prospect', players: PDG_PROSPECT },
     { teamId: 'prospect.TNXL',     shortName: 'TNXL',     division: 'prospect', players: [] },
     { teamId: 'prospect.WSA',      shortName: 'WSA',      division: 'prospect', players: [] },
   ],
@@ -90,10 +162,4 @@ export const ROSTERS: Record<Division, Team[]> = {
     { teamId: 'varsity.TNXL',  shortName: 'TNXL',      division: 'varsity', players: [] },
     { teamId: 'varsity.WSA',   shortName: 'WSA',       division: 'varsity', players: [] },
   ],
-};
-
-export const DIVISION_LABEL: Record<Division, string> = {
-  premier: 'Premier',
-  prospect: 'Prospect',
-  varsity: 'Varsity',
 };
