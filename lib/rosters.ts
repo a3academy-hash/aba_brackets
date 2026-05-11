@@ -373,6 +373,37 @@ const KINGSMEN_FLOATERS: Player[] = [
   { name: 'Harris Clark',     primaryDivision: 'prospect' },
 ];
 
+// Clubhouse ───────────────────────────────────────────────────────────────────
+// Varsity only — Clubhouse's other team is JV, which is not part of this
+// system. Source marked 5 Varsity↔JV floaters in bold blue; they are still
+// listed in the Varsity card's floater block at the user's request, but with
+// no `primaryDivision` since the adjacent team isn't modeled.
+
+const CLUBHOUSE_VARSITY: Player[] = [
+  { name: 'Brayden Aungst' },
+  { name: 'Brody Birren' },
+  { name: 'Elijah Birren', notes: 'IL' },
+  { name: 'Braydon Cook' },
+  { name: 'Caden Gillespie' },
+  { name: 'Landon King' },
+  { name: 'Kyler Loderbauer' },
+  { name: 'Brenden Marcic' },
+  { name: 'Javon Marks' },
+  { name: 'Kiano Noa' },
+  { name: 'Jace Pask' },
+  { name: 'Caleb Rodriguez' },
+  { name: 'Juilo Taveras' },
+  { name: 'Maksim Kilmer' },
+];
+
+const CLUBHOUSE_FLOATERS: Player[] = [
+  { name: 'Bryson Aperans' },
+  { name: 'Luciano Dokoupil' },
+  { name: 'Trent Jones' },
+  { name: 'Brantley Skinner' },
+  { name: 'Philippe Thibeault' },
+];
+
 // ─────────────────────────────────────────────────────────────────────────────
 // Master rosters map
 // ─────────────────────────────────────────────────────────────────────────────
@@ -401,7 +432,7 @@ export const ROSTERS: Record<Division, Team[]> = {
   ],
   varsity: [
     { teamId: 'varsity.A3',    shortName: 'A3',        division: 'varsity', players: [] },
-    { teamId: 'varsity.CLUB',  shortName: 'Clubhouse', division: 'varsity', players: [] },
+    { teamId: 'varsity.CLUB',  shortName: 'Clubhouse', division: 'varsity', players: CLUBHOUSE_VARSITY, floaters: CLUBHOUSE_FLOATERS },
     { teamId: 'varsity.CPCA',  shortName: 'CPCA',      division: 'varsity', players: [] },
     { teamId: 'varsity.ECA',   shortName: 'ECA',       division: 'varsity', players: [] },
     { teamId: 'varsity.FTB',   shortName: 'FTB',       division: 'varsity', players: [] },
