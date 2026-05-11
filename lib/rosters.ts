@@ -2,20 +2,28 @@
 // EDIT BELOW — team rosters for the ABA National Championship.
 //
 // Teams submitted rosters in mixed formats (Excel, PDF, lists, etc.). As they
-// are standardized, drop them into the `players` array of the matching team.
-// The Rosters page renders empty teams as "Roster pending."
+// are standardized, drop them into the matching team in ROSTERS below.
+// Empty teams render as "Roster Pending" on the public page.
 //
 // Floaters: a player who can play in BOTH their primary division and an
 // adjacent division (Premier↔Prospect, Prospect↔Varsity). Premier↔Varsity is
-// NOT allowed because those divisions are not adjacent. Each team is allowed
-// up to 5 floaters. Mark a player with `isFloater: true` and set `floatTo` to
-// the adjacent division they may play up/down to.
+// NOT allowed (non-adjacent). Each team is allowed up to 5 floaters.
 //
-// To add a player:
-//   { name: 'First Last', jerseyNumber: 12, position: 'SS' }
+// Convention: floaters are listed in a separate `floaters` array — they are
+// NOT duplicated in `players`. For an academy with two adjacent teams, the
+// SAME floater objects appear in both teams' `floaters` arrays so all five
+// floaters show up at the bottom of each team's roster card. Each floater
+// has a `primaryDivision` indicating which team they are officially rostered
+// to (the other being the adjacent division they can float into).
 //
-// To mark a floater:
-//   { name: 'First Last', isFloater: true, floatTo: 'prospect' }
+// Example:
+//   const PDG_FLOATERS: Player[] = [
+//     { name: 'Damian Sasser', primaryDivision: 'premier' },
+//     { name: 'Grant Shifflet', primaryDivision: 'prospect' },
+//     ...
+//   ];
+//   premier.PDG.floaters = PDG_FLOATERS
+//   prospect.PDG.floaters = PDG_FLOATERS
 // ─────────────────────────────────────────────────────────────────────────────
 
 import type { Division, TeamId } from './types';
@@ -26,14 +34,12 @@ export type Player = {
   position?: string;
   bats?: 'L' | 'R' | 'S';
   throws?: 'L' | 'R';
-  /** True if this player is one of the team's (up to 5) floaters. */
-  isFloater?: boolean;
   /**
-   * The adjacent division this floater may also play in. Required when
-   * `isFloater` is true. Premier↔Prospect and Prospect↔Varsity only —
-   * Premier↔Varsity is not allowed (non-adjacent).
+   * Only set on entries in `Team.floaters`. The division the player is
+   * primarily rostered to — the other adjacent division is where they can
+   * also play. Premier↔Prospect or Prospect↔Varsity only.
    */
-  floatTo?: Division;
+  primaryDivision?: Division;
   notes?: string;
 };
 
@@ -44,7 +50,14 @@ export type Team = {
   /** Full organization name; falls back to shortName on the rosters page. */
   fullName?: string;
   division: Division;
+  /** Regular (non-floater) roster. */
   players: Player[];
+  /**
+   * Up to 5 floaters eligible for this team plus an adjacent team. For an
+   * academy that fields two adjacent teams, the same floater list is shared
+   * between both teams so all 5 floaters appear at the bottom of both cards.
+   */
+  floaters?: Player[];
 };
 
 // Adjacency map for floater validation. Premier and Varsity are NOT adjacent.
@@ -67,9 +80,6 @@ export const DIVISION_LABEL: Record<Division, string> = {
 // ─────────────────────────────────────────────────────────────────────────────
 
 // PDG ─────────────────────────────────────────────────────────────────────────
-// Floaters (5 total, all Premier↔Prospect):
-//   Premier → Prospect: Damian Sasser, Jonathan Vousboukis
-//   Prospect → Premier: Grant Shifflet, Dawson Tuell, Alfred Seaman
 
 const PDG_PREMIER: Player[] = [
   { name: 'Wesley Hall' },
@@ -83,8 +93,6 @@ const PDG_PREMIER: Player[] = [
   { name: 'Ty McGuirk' },
   { name: 'JT Thompson' },
   { name: 'Jerome Fortier' },
-  { name: 'Damian Sasser', isFloater: true, floatTo: 'prospect' },
-  { name: 'Jonathan Vousboukis', isFloater: true, floatTo: 'prospect' },
   { name: 'Carsten Hamilton' },
   { name: 'Chase Colangelo' },
   { name: 'Colin Francis' },
@@ -104,7 +112,6 @@ const PDG_PROSPECT: Player[] = [
   { name: 'Logan Adams' },
   { name: 'Sean-Alex Polanco' },
   { name: 'Caleb Mastin' },
-  { name: 'Grant Shifflet', isFloater: true, floatTo: 'premier' },
   { name: 'Noah Fletcher' },
   { name: 'Mikey Marange' },
   { name: 'Mason Parker' },
@@ -113,15 +120,21 @@ const PDG_PROSPECT: Player[] = [
   { name: 'Joey Fiore' },
   { name: 'Ryan Kim' },
   { name: 'Cole Sheppard' },
-  { name: 'Dawson Tuell', isFloater: true, floatTo: 'premier' },
   { name: 'Chris Heinrich' },
   { name: 'Jude Hardy' },
   { name: 'Cooper Mong' },
   { name: 'Keagan Green' },
   { name: 'Bryce Radcliffe' },
   { name: 'Danny Kim' },
-  { name: 'Alfred Seaman', isFloater: true, floatTo: 'premier' },
   { name: 'Lincoln Whitman' },
+];
+
+const PDG_FLOATERS: Player[] = [
+  { name: 'Damian Sasser',       primaryDivision: 'premier'  },
+  { name: 'Jonathan Vousboukis', primaryDivision: 'premier'  },
+  { name: 'Grant Shifflet',      primaryDivision: 'prospect' },
+  { name: 'Dawson Tuell',        primaryDivision: 'prospect' },
+  { name: 'Alfred Seaman',       primaryDivision: 'prospect' },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -134,7 +147,7 @@ export const ROSTERS: Record<Division, Team[]> = {
     { teamId: 'premier.ECA',  shortName: 'ECA',  division: 'premier', players: [] },
     { teamId: 'premier.GPA',  shortName: 'GPA',  division: 'premier', players: [] },
     { teamId: 'premier.P27',  shortName: 'P27',  division: 'premier', players: [] },
-    { teamId: 'premier.PDG',  shortName: 'PDG',  division: 'premier', players: PDG_PREMIER },
+    { teamId: 'premier.PDG',  shortName: 'PDG',  division: 'premier', players: PDG_PREMIER, floaters: PDG_FLOATERS },
     { teamId: 'premier.TNXL', shortName: 'TNXL', division: 'premier', players: [] },
     { teamId: 'premier.WSA',  shortName: 'WSA',  division: 'premier', players: [] },
   ],
@@ -146,7 +159,7 @@ export const ROSTERS: Record<Division, Team[]> = {
     { teamId: 'prospect.GPA',      shortName: 'GPA',      division: 'prospect', players: [] },
     { teamId: 'prospect.Kingsmen', shortName: 'Kingsmen', division: 'prospect', players: [] },
     { teamId: 'prospect.P27',      shortName: 'P27',      division: 'prospect', players: [] },
-    { teamId: 'prospect.PDG',      shortName: 'PDG',      division: 'prospect', players: PDG_PROSPECT },
+    { teamId: 'prospect.PDG',      shortName: 'PDG',      division: 'prospect', players: PDG_PROSPECT, floaters: PDG_FLOATERS },
     { teamId: 'prospect.TNXL',     shortName: 'TNXL',     division: 'prospect', players: [] },
     { teamId: 'prospect.WSA',      shortName: 'WSA',      division: 'prospect', players: [] },
   ],
