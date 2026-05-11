@@ -404,6 +404,80 @@ const CLUBHOUSE_FLOATERS: Player[] = [
   { name: 'Philippe Thibeault' },
 ];
 
+// ECA ─────────────────────────────────────────────────────────────────────────
+// Source spreadsheet has explicit "Premier to Prospect" (green) and
+// "Prospect to Varsity" (yellow) columns, so floater direction is unambiguous.
+
+const ECA_PREMIER: Player[] = [
+  { name: 'Carter Adams' },
+  { name: 'Lawson Tyndall' },
+  { name: 'Caden Scott' },
+  { name: 'Connor Radford' },
+  { name: 'Miguel Delgado' },
+  { name: 'Hayden Waller' },
+  { name: 'Baines Raynor' },
+  { name: 'Jace Jones' },
+  { name: 'Will Jones' },
+  { name: 'Cooper Redfern' },
+  { name: 'Tanner Trevathan' },
+  { name: 'Dayton Hamilton' },
+];
+
+const ECA_PROSPECT: Player[] = [
+  { name: 'Thad Parker' },
+  { name: 'Isaiah Cora' },
+  { name: 'Jeff Newsome' },
+  { name: 'Alex Hernandez' },
+  { name: 'Jackson Mocny' },
+  { name: 'Carson Mentlewski' },
+  { name: 'Jack Cunningham' },
+  { name: 'Donaven Wright' },
+  { name: 'Sam Lopez' },
+  { name: 'Chandler Hill' },
+];
+
+const ECA_VARSITY: Player[] = [
+  { name: 'Patrick Keller' },
+  { name: 'Lyric Pittman' },
+  { name: 'Clark Johnson' },
+  { name: 'Bryce Weeks' },
+  { name: 'Alex Estevez' },
+  { name: 'Chace Chrismon' },
+  { name: 'Blake Wallace' },
+  { name: 'Max Liriano' },
+  { name: 'Teagan Nickerson' },
+  { name: 'Riley Ciechoski' },
+  { name: 'Ian Neuberger' },
+  { name: 'Ben Reese' },
+  { name: 'Easton Hart' },
+  { name: 'Enmanuel Gregorio' },
+  { name: 'CJ Summerlin' },
+  { name: 'Max Clark' },
+  { name: 'Wesley Kennedy' },
+  { name: 'Hayden Herring' },
+];
+
+const ECA_PREM_PROS_FLOATERS: Player[] = [
+  { name: 'Evan Johnson',  primaryDivision: 'premier' },
+  { name: 'Miles Hamm',    primaryDivision: 'premier' },
+  { name: 'Charlie Scott', primaryDivision: 'premier' },
+  { name: 'Landen Smith',  primaryDivision: 'premier' },
+  { name: 'Gabe Spears',   primaryDivision: 'premier' },
+];
+
+const ECA_PROS_VARS_FLOATERS: Player[] = [
+  { name: 'Jameson Stroud', primaryDivision: 'prospect' },
+  { name: 'Mack Wiggins',   primaryDivision: 'prospect' },
+  { name: 'Jackson Brown',  primaryDivision: 'prospect' },
+  { name: 'Noah Genna',     primaryDivision: 'prospect' },
+  { name: 'Josh Parnell',   primaryDivision: 'prospect' },
+];
+
+const ECA_PROSPECT_FLOATERS: Player[] = [
+  ...ECA_PREM_PROS_FLOATERS,
+  ...ECA_PROS_VARS_FLOATERS,
+];
+
 // ─────────────────────────────────────────────────────────────────────────────
 // Master rosters map
 // ─────────────────────────────────────────────────────────────────────────────
@@ -411,7 +485,7 @@ const CLUBHOUSE_FLOATERS: Player[] = [
 export const ROSTERS: Record<Division, Team[]> = {
   premier: [
     { teamId: 'premier.A3',   shortName: 'A3',   division: 'premier', players: [] },
-    { teamId: 'premier.ECA',  shortName: 'ECA',  division: 'premier', players: [] },
+    { teamId: 'premier.ECA',  shortName: 'ECA',  division: 'premier', players: ECA_PREMIER, floaters: ECA_PREM_PROS_FLOATERS },
     { teamId: 'premier.GPA',  shortName: 'GPA',  division: 'premier', players: [] },
     { teamId: 'premier.P27',  shortName: 'P27',  division: 'premier', players: P27_PREMIER, floaters: P27_PREM_PROS_FLOATERS },
     { teamId: 'premier.PDG',  shortName: 'PDG',  division: 'premier', players: PDG_PREMIER, floaters: PDG_FLOATERS },
@@ -422,7 +496,7 @@ export const ROSTERS: Record<Division, Team[]> = {
     { teamId: 'prospect.A3',       shortName: 'A3',       division: 'prospect', players: [] },
     { teamId: 'prospect.CPCA',     shortName: 'CPCA',     division: 'prospect', players: [] },
     { teamId: 'prospect.DSC',      shortName: 'DSC',      division: 'prospect', players: [] },
-    { teamId: 'prospect.ECA',      shortName: 'ECA',      division: 'prospect', players: [] },
+    { teamId: 'prospect.ECA',      shortName: 'ECA',      division: 'prospect', players: ECA_PROSPECT, floaters: ECA_PROSPECT_FLOATERS },
     { teamId: 'prospect.GPA',      shortName: 'GPA',      division: 'prospect', players: [] },
     { teamId: 'prospect.Kingsmen', shortName: 'Kingsmen', division: 'prospect', players: KINGSMEN_PROSPECT, floaters: KINGSMEN_FLOATERS },
     { teamId: 'prospect.P27',      shortName: 'P27',      division: 'prospect', players: P27_PROSPECT, floaters: P27_PROSPECT_FLOATERS },
@@ -434,7 +508,7 @@ export const ROSTERS: Record<Division, Team[]> = {
     { teamId: 'varsity.A3',    shortName: 'A3',        division: 'varsity', players: [] },
     { teamId: 'varsity.CLUB',  shortName: 'Clubhouse', division: 'varsity', players: CLUBHOUSE_VARSITY, floaters: CLUBHOUSE_FLOATERS },
     { teamId: 'varsity.CPCA',  shortName: 'CPCA',      division: 'varsity', players: [] },
-    { teamId: 'varsity.ECA',   shortName: 'ECA',       division: 'varsity', players: [] },
+    { teamId: 'varsity.ECA',   shortName: 'ECA',       division: 'varsity', players: ECA_VARSITY, floaters: ECA_PROS_VARS_FLOATERS },
     { teamId: 'varsity.FTB',   shortName: 'FTB',       division: 'varsity', players: [] },
     { teamId: 'varsity.GPA',   shortName: 'GPA',       division: 'varsity', players: [] },
     { teamId: 'varsity.KINGS', shortName: 'KINGS',     fullName: 'Kingsmen',   division: 'varsity', players: KINGS_VARSITY, floaters: KINGSMEN_FLOATERS },
