@@ -1,6 +1,6 @@
 import { BracketView } from '@/components/BracketView';
 import { ChampionshipBell } from '@/components/ChampionshipBell';
-import { DivisionTabs, TAB_KEYS, type TabKey } from '@/components/DivisionTabs';
+import { DivisionTabs } from '@/components/DivisionTabs';
 import { HomeRunDerby } from '@/components/HomeRunDerby';
 import { InfoPanel } from '@/components/InfoPanel';
 import { Rosters } from '@/components/Rosters';
@@ -8,6 +8,7 @@ import { Rules } from '@/components/Rules';
 import { ScheduleGrid } from '@/components/ScheduleGrid';
 import { SiteHeader } from '@/components/SiteHeader';
 import { getAllStates } from '@/lib/kv';
+import { TAB_KEYS, type TabKey } from '@/lib/tabs';
 
 // Public bracket page — auto-revalidate every 60s as a fallback for visitors
 // who don't refresh. Admin writes also call revalidatePath('/').

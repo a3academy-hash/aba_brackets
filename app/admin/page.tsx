@@ -1,12 +1,13 @@
 import { BracketView } from '@/components/BracketView';
 import { ChampionshipBell } from '@/components/ChampionshipBell';
-import { DivisionTabs, TAB_KEYS, type TabKey } from '@/components/DivisionTabs';
+import { DivisionTabs } from '@/components/DivisionTabs';
 import { HomeRunDerby } from '@/components/HomeRunDerby';
 import { Rosters } from '@/components/Rosters';
 import { Rules } from '@/components/Rules';
 import { ScheduleGrid } from '@/components/ScheduleGrid';
 import { SiteHeader } from '@/components/SiteHeader';
 import { getAllStates } from '@/lib/kv';
+import { TAB_KEYS, type TabKey } from '@/lib/tabs';
 
 // Always render fresh — admin needs to see their own writes immediately.
 export const dynamic = 'force-dynamic';

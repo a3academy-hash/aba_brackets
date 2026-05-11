@@ -2,30 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { DIVISIONS } from '@/lib/types';
-import type { Division } from '@/lib/types';
-
-export type TabKey = 'derby' | 'bell' | Division | 'rosters' | 'grid' | 'rules';
-// Order matters — first key is the default tab when no ?d= is provided.
-export const TAB_KEYS: readonly TabKey[] = [
-  'derby',
-  'bell',
-  ...DIVISIONS,
-  'rosters',
-  'grid',
-  'rules',
-] as const;
-
-const TAB_NAMES: Record<TabKey, string> = {
-  derby: 'Home Run Derby',
-  bell: 'Championship Bell',
-  premier: 'Premier',
-  prospect: 'Prospect',
-  varsity: 'Varsity',
-  rosters: 'Rosters',
-  grid: 'Grid',
-  rules: 'Rules',
-};
+import { TAB_KEYS, TAB_NAMES, type TabKey } from '@/lib/tabs';
 
 type Props = {
   active: TabKey;
