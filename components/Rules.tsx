@@ -31,6 +31,12 @@ const RULES: Rule[] = [
     ],
   },
   {
+    kind: 'paragraph',
+    title: 'Home Team',
+    body:
+      'The home team will be the higher seed throughout the tournament, except in the championship game(s), where the winner’s bracket team will be the home team.',
+  },
+  {
     kind: 'pairs',
     title: 'Tiebreakers / Extra Innings',
     pairs: [
