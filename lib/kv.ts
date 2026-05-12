@@ -1,6 +1,7 @@
 import { Redis } from '@upstash/redis';
 import type { Division, DivisionState, GameId, GameResult } from './types';
 import { emptyDivisionState, EMPTY_RESULT } from './types';
+import { seedLatestFinalizedAt, seedResultsForDivision } from './seedResults';
 
 /**
  * KV layout — one key per division:
@@ -62,7 +63,26 @@ function getClient(): Store {
 
 export async function getDivisionState(div: Division): Promise<DivisionState> {
   const stored = await getClient().get<DivisionState>(stateKey(div));
-  return stored ?? emptyDivisionState();
+  const seed = seedResultsForDivision(div);
+
+  // No seed entries for this division → original behavior.
+  if (Object.keys(seed).length === 0) {
+    return stored ?? emptyDivisionState();
+  }
+
+  // Stored results win per game; seed fills in any games KV hasn't touched.
+  const results = { ...seed, ...(stored?.results ?? {}) };
+
+  // Prefer stored.updatedAt if KV has ever been written to; otherwise show
+  // the most recent seed finalizedAt so the hero doesn't say "Awaiting first
+  // results" when seeded winners are visible on the cards.
+  const epoch = new Date(0).toISOString();
+  let updatedAt = stored?.updatedAt ?? epoch;
+  if (updatedAt === epoch) {
+    updatedAt = seedLatestFinalizedAt(div) ?? epoch;
+  }
+
+  return { results, updatedAt };
 }
 
 export async function getAllStates(): Promise<Record<Division, DivisionState>> {
