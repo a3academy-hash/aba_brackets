@@ -254,6 +254,7 @@ const DIVISION_TINT: Record<Division, { bg: string; titleText: string }> = {
   premier:  { bg: 'bg-premier-bg',  titleText: 'text-navy' },
   prospect: { bg: 'bg-prospect-bg', titleText: 'text-aba-red-dark' },
   varsity:  { bg: 'bg-varsity-bg',  titleText: 'text-navy' },
+  jv:       { bg: 'bg-jv-bg',       titleText: 'text-navy' },
 };
 
 function Legend() {
@@ -261,6 +262,7 @@ function Legend() {
     { div: 'premier', label: 'Premier' },
     { div: 'prospect', label: 'Prospect' },
     { div: 'varsity', label: 'Varsity' },
+    { div: 'jv', label: 'JV' },
   ];
   return (
     <div className="mt-3 flex items-center gap-4 text-[11px] text-muted">

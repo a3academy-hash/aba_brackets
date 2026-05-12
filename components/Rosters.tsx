@@ -15,7 +15,7 @@ export function Rosters() {
       <Hero />
       <div className="px-4 lg:px-6 py-8 max-w-screen-2xl mx-auto space-y-10">
         <FloaterLegend />
-        {DIVISIONS.map((division) => (
+        {DIVISIONS.filter((d) => ROSTERS[d].length > 0).map((division) => (
           <DivisionSection key={division} division={division} teams={ROSTERS[division]} />
         ))}
       </div>

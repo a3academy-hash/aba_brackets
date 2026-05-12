@@ -1,6 +1,6 @@
-export type Division = 'premier' | 'prospect' | 'varsity';
+export type Division = 'premier' | 'prospect' | 'varsity' | 'jv';
 
-export const DIVISIONS: readonly Division[] = ['premier', 'prospect', 'varsity'] as const;
+export const DIVISIONS: readonly Division[] = ['premier', 'prospect', 'varsity', 'jv'] as const;
 
 export type GameId = `${Division}.g${number}` | `${Division}.fin` | `${Division}.if`;
 

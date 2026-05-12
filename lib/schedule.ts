@@ -14,6 +14,7 @@ export const GAMES_BY_DIVISION: Readonly<Record<Division, readonly Game[]>> = Ob
   premier:  games.filter((g) => g.division === 'premier'),
   prospect: games.filter((g) => g.division === 'prospect'),
   varsity:  games.filter((g) => g.division === 'varsity'),
+  jv:       games.filter((g) => g.division === 'jv'),
 });
 
 export function getGame(id: GameId): Game {
@@ -26,10 +27,16 @@ export function getDivisionGames(div: Division): readonly Game[] {
   return GAMES_BY_DIVISION[div];
 }
 
-// Sanity check at module load: counts must match the spec (Premier 13, Prospect 19, Varsity 19).
-// If this throws, the importer regenerated games.json with a structural change and we want to know.
+// Sanity check at module load: counts must match the spec.
+// If this throws, the importer regenerated games.json with a structural change
+// or a hand-edited division (JV) was modified without updating the count.
 {
-  const expected: Record<Division, number> = { premier: 13, prospect: 19, varsity: 19 };
+  const expected: Record<Division, number> = {
+    premier: 13,
+    prospect: 19,
+    varsity: 19,
+    jv: 11,
+  };
   for (const div of DIVISIONS) {
     const got = GAMES_BY_DIVISION[div].length;
     if (got !== expected[div]) {

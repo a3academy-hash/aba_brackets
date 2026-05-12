@@ -6,7 +6,26 @@ export type ResolvedSlot =
   | { kind: 'team'; teamId: TeamId; displayName: string; isWinner: boolean }
   | { kind: 'placeholder'; label: string };
 
+/**
+ * Override map for team display names — used when the team's bracket short code
+ * (the segment after the division prefix in its TeamId) doesn't match the
+ * desired card label. Keep entries sparse: only add an override when the slice
+ * fallback ("CLUB" → "CLUB") would be wrong.
+ */
+const TEAM_DISPLAY_NAMES: Partial<Record<TeamId, string>> = {
+  // JV bracket teams. Source labels include team-specific branding the bracket
+  // ID can't carry (spaces, suffixes).
+  'jv.CLUB': 'Clubhouse Commanders',
+  'jv.A3HS': 'A3 HS JV',
+  'jv.A3MS': 'A3 MS JV',
+  'jv.TNXL': 'TNXL Academy',
+  'jv.WSA':  'Wellington JV',
+  'jv.FTB':  'FTB Academy JV',
+};
+
 export function teamDisplayName(teamId: TeamId): string {
+  const ov = TEAM_DISPLAY_NAMES[teamId];
+  if (ov) return ov;
   // teamId = "${division}.${name}" — drop the division prefix
   const dot = teamId.indexOf('.');
   return teamId.slice(dot + 1);
