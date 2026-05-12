@@ -10,12 +10,12 @@ export type TabKey = 'derby' | 'bell' | Division | 'rosters' | 'grid' | 'rules';
 
 // Order matters — first key is the default tab when no ?d= is provided.
 export const TAB_KEYS: readonly TabKey[] = [
-  'derby',
+  'grid',
   'bell',
   ...DIVISIONS,
   'rosters',
-  'grid',
   'rules',
+  'derby',
 ] as const;
 
 export const TAB_NAMES: Record<TabKey, string> = {

@@ -62,5 +62,5 @@ export default async function HomePage({ searchParams }: { searchParams: SearchP
 
 function parseTab(raw: string | undefined): TabKey {
   if (raw && (TAB_KEYS as readonly string[]).includes(raw)) return raw as TabKey;
-  return 'derby';
+  return 'grid';
 }
