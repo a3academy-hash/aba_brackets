@@ -49,6 +49,13 @@ export const SEED_RESULTS: Partial<Record<GameId, GameResult>> = {
     homeScore: null,
     finalizedAt: TUE_GAME_END,
   },
+  // JV G1 — Tue 11:00 AM · F1 · TNXL Academy vs Wellington JV
+  'jv.g1': {
+    winner: 'jv.TNXL',
+    awayScore: null,
+    homeScore: null,
+    finalizedAt: TUE_GAME_END,
+  },
 };
 
 export function seedResultsForDivision(
