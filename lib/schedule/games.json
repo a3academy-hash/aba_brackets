@@ -908,8 +908,8 @@
     "division": "jv",
     "bracket": "WB",
     "gameNumber": 3,
-    "date": "2026-05-12",
-    "time": "1:45 PM",
+    "date": "2026-05-13",
+    "time": "9:00 AM",
     "field": "Field 1",
     "away": {
       "kind": "team",
@@ -925,8 +925,8 @@
     "division": "jv",
     "bracket": "WB",
     "gameNumber": 4,
-    "date": "2026-05-12",
-    "time": "12:45 PM",
+    "date": "2026-05-13",
+    "time": "9:00 AM",
     "field": "Field 2",
     "away": {
       "kind": "team",
@@ -943,7 +943,7 @@
     "bracket": "LB",
     "gameNumber": 5,
     "date": "2026-05-13",
-    "time": "9:30 AM",
+    "time": "10:00 AM",
     "field": "Field 2",
     "away": {
       "kind": "loserOf",
@@ -960,7 +960,7 @@
     "bracket": "LB",
     "gameNumber": 6,
     "date": "2026-05-13",
-    "time": "9:30 AM",
+    "time": "10:00 AM",
     "field": "Field 1",
     "away": {
       "kind": "loserOf",
@@ -977,7 +977,7 @@
     "bracket": "WB",
     "gameNumber": 7,
     "date": "2026-05-13",
-    "time": "12:00 PM",
+    "time": "12:30 PM",
     "field": "Field 2",
     "away": {
       "kind": "winnerOf",
@@ -994,7 +994,7 @@
     "bracket": "LB",
     "gameNumber": 8,
     "date": "2026-05-13",
-    "time": "12:00 PM",
+    "time": "12:30 PM",
     "field": "Field 1",
     "away": {
       "kind": "winnerOf",
