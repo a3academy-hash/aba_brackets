@@ -3,10 +3,11 @@ import type { Division, DivisionState, GameId, GameResult } from './types';
 import { emptyDivisionState, EMPTY_RESULT } from './types';
 
 /**
- * KV layout — three keys total:
+ * KV layout — one key per division:
  *   aba:state:premier   → DivisionState
  *   aba:state:prospect  → DivisionState
  *   aba:state:varsity   → DivisionState
+ *   aba:state:jv        → DivisionState
  *
  * One read per division per page render; one write per admin action.
  */
@@ -65,12 +66,13 @@ export async function getDivisionState(div: Division): Promise<DivisionState> {
 }
 
 export async function getAllStates(): Promise<Record<Division, DivisionState>> {
-  const [premier, prospect, varsity] = await Promise.all([
+  const [premier, prospect, varsity, jv] = await Promise.all([
     getDivisionState('premier'),
     getDivisionState('prospect'),
     getDivisionState('varsity'),
+    getDivisionState('jv'),
   ]);
-  return { premier, prospect, varsity };
+  return { premier, prospect, varsity, jv };
 }
 
 // ── writes ────────────────────────────────────────────────────────────────────

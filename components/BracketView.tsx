@@ -12,6 +12,7 @@ const DIVISION_NAMES: Record<Division, string> = {
   premier: 'Premier',
   prospect: 'Prospect',
   varsity: 'Varsity',
+  jv: 'JV',
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -37,6 +38,11 @@ const DIVISION_HEROES: Record<
     eyebrow: 'ABA National Championship',
     title: 'Varsity Division',
     subtitle: 'Ring the Bell. Earn the Title.',
+  },
+  jv: {
+    eyebrow: 'ABA JV Championship · Spring 2026',
+    title: 'JV Division',
+    subtitle: 'Double Elimination · 6 Teams · Chain O’ Lakes, Winter Haven FL',
   },
 };
 

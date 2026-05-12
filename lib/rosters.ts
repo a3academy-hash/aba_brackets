@@ -69,10 +69,13 @@ export type Team = {
 };
 
 // Adjacency map for floater validation. Premier and Varsity are NOT adjacent.
+// JV is included in the type but has no roster page presence yet — left with
+// an empty neighbor list so it never participates in floater logic.
 export const FLOAT_ADJACENCY: Record<Division, readonly Division[]> = {
   premier: ['prospect'],
   prospect: ['premier', 'varsity'],
   varsity: ['prospect'],
+  jv: [],
 };
 
 /** Up to 5 floaters per adjacency pair (Premier↔Prospect, Prospect↔Varsity). */
@@ -82,6 +85,7 @@ export const DIVISION_LABEL: Record<Division, string> = {
   premier: 'Premier',
   prospect: 'Prospect',
   varsity: 'Varsity',
+  jv: 'JV',
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -825,4 +829,8 @@ export const ROSTERS: Record<Division, Team[]> = {
     { teamId: 'varsity.TNXL',  shortName: 'TNXL',      division: 'varsity', players: TNXL_VARSITY },
     { teamId: 'varsity.WSA',   shortName: 'WSA',       fullName: 'Wellington', division: 'varsity', players: WSA_VARSITY, floaters: WSA_PROS_VARS_FLOATERS },
   ],
+  // JV teams are bracket-only — no roster page presence. Kept here so the
+  // Record<Division, Team[]> type stays exhaustive; Rosters.tsx skips empty
+  // division sections.
+  jv: [],
 };

@@ -868,5 +868,193 @@
       "kind": "winnerOf",
       "gameId": "varsity.g17"
     }
+  },
+  {
+    "id": "jv.g1",
+    "division": "jv",
+    "bracket": "POOL",
+    "gameNumber": 1,
+    "date": "2026-05-12",
+    "time": "11:00 AM",
+    "field": "Field 1",
+    "away": {
+      "kind": "team",
+      "teamId": "jv.TNXL"
+    },
+    "home": {
+      "kind": "team",
+      "teamId": "jv.WSA"
+    }
+  },
+  {
+    "id": "jv.g2",
+    "division": "jv",
+    "bracket": "POOL",
+    "gameNumber": 2,
+    "date": "2026-05-12",
+    "time": "10:00 AM",
+    "field": "Field 2",
+    "away": {
+      "kind": "team",
+      "teamId": "jv.A3MS"
+    },
+    "home": {
+      "kind": "team",
+      "teamId": "jv.FTB"
+    }
+  },
+  {
+    "id": "jv.g3",
+    "division": "jv",
+    "bracket": "WB",
+    "gameNumber": 3,
+    "date": "2026-05-12",
+    "time": "1:45 PM",
+    "field": "Field 1",
+    "away": {
+      "kind": "team",
+      "teamId": "jv.CLUB"
+    },
+    "home": {
+      "kind": "winnerOf",
+      "gameId": "jv.g1"
+    }
+  },
+  {
+    "id": "jv.g4",
+    "division": "jv",
+    "bracket": "WB",
+    "gameNumber": 4,
+    "date": "2026-05-12",
+    "time": "12:45 PM",
+    "field": "Field 2",
+    "away": {
+      "kind": "team",
+      "teamId": "jv.A3HS"
+    },
+    "home": {
+      "kind": "winnerOf",
+      "gameId": "jv.g2"
+    }
+  },
+  {
+    "id": "jv.g5",
+    "division": "jv",
+    "bracket": "LB",
+    "gameNumber": 5,
+    "date": "2026-05-12",
+    "time": "4:30 PM",
+    "field": "Field 1",
+    "away": {
+      "kind": "loserOf",
+      "gameId": "jv.g1"
+    },
+    "home": {
+      "kind": "loserOf",
+      "gameId": "jv.g2"
+    }
+  },
+  {
+    "id": "jv.g6",
+    "division": "jv",
+    "bracket": "LB",
+    "gameNumber": 6,
+    "date": "2026-05-13",
+    "time": "11:00 AM",
+    "field": "Field 1",
+    "away": {
+      "kind": "loserOf",
+      "gameId": "jv.g3"
+    },
+    "home": {
+      "kind": "loserOf",
+      "gameId": "jv.g4"
+    }
+  },
+  {
+    "id": "jv.g7",
+    "division": "jv",
+    "bracket": "WB",
+    "gameNumber": 7,
+    "date": "2026-05-13",
+    "time": "11:00 AM",
+    "field": "Field 2",
+    "away": {
+      "kind": "winnerOf",
+      "gameId": "jv.g3"
+    },
+    "home": {
+      "kind": "winnerOf",
+      "gameId": "jv.g4"
+    }
+  },
+  {
+    "id": "jv.g8",
+    "division": "jv",
+    "bracket": "LB",
+    "gameNumber": 8,
+    "date": "2026-05-13",
+    "time": "12:45 PM",
+    "field": "Field 1",
+    "away": {
+      "kind": "winnerOf",
+      "gameId": "jv.g5"
+    },
+    "home": {
+      "kind": "winnerOf",
+      "gameId": "jv.g6"
+    }
+  },
+  {
+    "id": "jv.g9",
+    "division": "jv",
+    "bracket": "LB",
+    "gameNumber": 9,
+    "date": "2026-05-14",
+    "time": "11:00 AM",
+    "field": "Field 1",
+    "away": {
+      "kind": "winnerOf",
+      "gameId": "jv.g8"
+    },
+    "home": {
+      "kind": "loserOf",
+      "gameId": "jv.g7"
+    }
+  },
+  {
+    "id": "jv.fin",
+    "division": "jv",
+    "bracket": "FINAL",
+    "gameNumber": null,
+    "date": "2026-05-14",
+    "time": "1:45 PM",
+    "field": "Field 1",
+    "away": {
+      "kind": "winnerOf",
+      "gameId": "jv.g7"
+    },
+    "home": {
+      "kind": "winnerOf",
+      "gameId": "jv.g9"
+    },
+    "ifGameId": "jv.if"
+  },
+  {
+    "id": "jv.if",
+    "division": "jv",
+    "bracket": "IF",
+    "gameNumber": null,
+    "date": "2026-05-14",
+    "time": "4:30 PM",
+    "field": "Field 1",
+    "away": {
+      "kind": "winnerOf",
+      "gameId": "jv.g7"
+    },
+    "home": {
+      "kind": "winnerOf",
+      "gameId": "jv.g9"
+    }
   }
 ]

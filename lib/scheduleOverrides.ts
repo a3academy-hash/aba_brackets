@@ -44,6 +44,8 @@ export const defaultChampionshipLabels: Partial<Record<GameId, string>> = {
   'prospect.if':  'IF Prospect Championship',
   'varsity.fin':  'Varsity Championship',
   'varsity.if':   'IF Varsity Championship',
+  'jv.fin':       'JV Championship',
+  'jv.if':        'IF JV Championship',
 };
 
 // Build-time assertion: every key in labelOverrides must reference a real game.

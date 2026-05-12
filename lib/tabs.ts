@@ -24,6 +24,7 @@ export const TAB_NAMES: Record<TabKey, string> = {
   premier: 'Premier',
   prospect: 'Prospect',
   varsity: 'Varsity',
+  jv: 'JV',
   rosters: 'Rosters',
   grid: 'Grid',
   rules: 'Rules',
