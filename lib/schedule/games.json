@@ -942,9 +942,9 @@
     "division": "jv",
     "bracket": "LB",
     "gameNumber": 5,
-    "date": "2026-05-12",
-    "time": "4:30 PM",
-    "field": "Field 1",
+    "date": "2026-05-13",
+    "time": "9:30 AM",
+    "field": "Field 2",
     "away": {
       "kind": "loserOf",
       "gameId": "jv.g1"
@@ -960,7 +960,7 @@
     "bracket": "LB",
     "gameNumber": 6,
     "date": "2026-05-13",
-    "time": "10:00 AM",
+    "time": "9:30 AM",
     "field": "Field 1",
     "away": {
       "kind": "loserOf",
@@ -977,7 +977,7 @@
     "bracket": "WB",
     "gameNumber": 7,
     "date": "2026-05-13",
-    "time": "10:00 AM",
+    "time": "12:00 PM",
     "field": "Field 2",
     "away": {
       "kind": "winnerOf",
@@ -994,7 +994,7 @@
     "bracket": "LB",
     "gameNumber": 8,
     "date": "2026-05-13",
-    "time": "12:45 PM",
+    "time": "12:00 PM",
     "field": "Field 1",
     "away": {
       "kind": "winnerOf",
@@ -1011,7 +1011,7 @@
     "bracket": "LB",
     "gameNumber": 9,
     "date": "2026-05-14",
-    "time": "11:00 AM",
+    "time": "10:00 AM",
     "field": "Field 1",
     "away": {
       "kind": "winnerOf",
@@ -1028,7 +1028,7 @@
     "bracket": "FINAL",
     "gameNumber": null,
     "date": "2026-05-14",
-    "time": "1:45 PM",
+    "time": "12:30 PM",
     "field": "Field 1",
     "away": {
       "kind": "winnerOf",
@@ -1046,7 +1046,7 @@
     "bracket": "IF",
     "gameNumber": null,
     "date": "2026-05-14",
-    "time": "4:30 PM",
+    "time": "3:00 PM",
     "field": "Field 1",
     "away": {
       "kind": "winnerOf",
