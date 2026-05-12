@@ -39,6 +39,7 @@ export function GameCard({ game, results, admin = false, dimmed = false }: Props
       <header className="bg-navy text-white px-2 h-[22px] shrink-0 flex items-center justify-between text-[10px] font-semibold leading-none">
         <span className="truncate">{titleShort}</span>
         <span className="opacity-80 font-normal shrink-0 ml-1 tabular-nums">
+          {game.division === 'jv' ? `${dayShort(game.date)} ` : ''}
           {game.field.replace('Field ', 'F')} · {compactTime(time)}
         </span>
       </header>
@@ -187,11 +188,10 @@ function ScoreInput({
   );
 }
 
-function formatDate(iso: string): string {
+function dayShort(iso: string): string {
   const [y, m, d] = iso.split('-').map(Number);
   const date = new Date(Date.UTC(y, m - 1, d));
-  const dow = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][date.getUTCDay()];
-  return `${dow} ${m}/${d}`;
+  return ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][date.getUTCDay()];
 }
 
 /** "10:00 AM" → "10a", "12:15 PM" → "12:15p", "1:00 PM" → "1p" */
