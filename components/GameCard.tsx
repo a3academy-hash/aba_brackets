@@ -91,7 +91,7 @@ function Side({
   // the header. flex-1 + min-h-0 allows the row to shrink to fit the parent.
   const rowClass = [
     'flex items-center justify-between px-2 flex-1 min-h-0',
-    isWinner ? 'bg-aba-red/10 border-l-[3px] border-aba-red' : '',
+    isWinner ? 'bg-emerald-500/15 border-l-[3px] border-emerald-500' : '',
     slot.kind === 'placeholder' ? 'text-muted italic text-[11px]' : 'text-navy font-medium text-[12px]',
   ].join(' ');
 
@@ -101,7 +101,7 @@ function Side({
       <span
         className={[
           'tabular-nums shrink-0 ml-1 text-[12px]',
-          isWinner ? 'font-bold text-aba-red' : 'text-muted',
+          isWinner ? 'font-bold text-emerald-600' : 'text-muted',
         ].join(' ')}
       >
         {score ?? ''}
