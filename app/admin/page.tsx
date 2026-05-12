@@ -52,5 +52,5 @@ export default async function AdminPage({ searchParams }: { searchParams: Search
 
 function parseTab(raw: string | undefined): TabKey {
   if (raw && (TAB_KEYS as readonly string[]).includes(raw)) return raw as TabKey;
-  return 'derby';
+  return 'grid';
 }
