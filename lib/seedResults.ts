@@ -14,6 +14,20 @@ import type { Division, GameId, GameResult } from './types';
 const TUE_GAME_END = '2026-05-12T15:30:00.000Z';
 
 export const SEED_RESULTS: Partial<Record<GameId, GameResult>> = {
+  // Premier G1 — Tue 12:15 PM · F10 · WSA vs A3
+  'premier.g1': {
+    winner: 'premier.WSA',
+    awayScore: null,
+    homeScore: null,
+    finalizedAt: TUE_GAME_END,
+  },
+  // Premier G2 — Tue 12:15 PM · F9 · ECA vs TNXL
+  'premier.g2': {
+    winner: 'premier.TNXL',
+    awayScore: null,
+    homeScore: null,
+    finalizedAt: TUE_GAME_END,
+  },
   // Prospect G1 — Tue 9:30 AM · F11 · WSA vs CPCA
   'prospect.g1': {
     winner: 'prospect.CPCA',
