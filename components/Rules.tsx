@@ -26,7 +26,7 @@ const RULES: Rule[] = [
     kind: 'pairs',
     title: 'Time Limits',
     pairs: [
-      ['Varsity', '2.5-hour time limit before the tiebreaker starts. Game ends at 7 innings or 2.5 hours, whichever comes first.'],
+      ['Varsity/JV', '2.5-hour time limit before the tiebreaker starts. Game ends at 7 innings or 2.5 hours, whichever comes first.'],
       ['Premier & Prospect', 'No time limit (unless inclement weather).'],
     ],
   },
@@ -41,7 +41,7 @@ const RULES: Rule[] = [
     title: 'Tiebreakers / Extra Innings',
     pairs: [
       ['Premier', 'Straight up.'],
-      ['Prospect & Varsity', 'Bases loaded, 1 out.'],
+      ['Prospect & Varsity/JV', 'Bases loaded, 1 out.'],
     ],
   },
   {
