@@ -227,7 +227,7 @@ function TeamLine({
           slot.kind === 'placeholder'
             ? 'text-muted italic text-[10px]'
             : 'text-navy font-medium text-[12px]',
-          isWinner ? 'font-bold text-aba-red' : '',
+          isWinner ? 'font-bold text-emerald-600' : '',
         ].join(' ')}
       >
         {text}
@@ -235,7 +235,7 @@ function TeamLine({
       <span
         className={[
           'tabular-nums shrink-0 text-[11px]',
-          isWinner ? 'font-bold text-aba-red' : 'text-muted',
+          isWinner ? 'font-bold text-emerald-600' : 'text-muted',
         ].join(' ')}
       >
         {score ?? ''}
