@@ -9,9 +9,10 @@ import type { Division, GameId, GameResult } from './types';
  * the public site (or to back-fill historical games into a fresh KV).
  */
 
-// Static timestamp so the "Updated X ago" label is stable across re-renders.
-// Approximates the actual end of the games (Tue 5/12, ~2hr after 9:30 AM ET).
+// Static timestamps so the "Updated X ago" label is stable across re-renders.
+// Approximate the actual end of each batch (~2hr after first pitch).
 const TUE_GAME_END = '2026-05-12T15:30:00.000Z';
+const WED_GAME_END = '2026-05-13T15:30:00.000Z';
 
 export const SEED_RESULTS: Partial<Record<GameId, GameResult>> = {
   // Premier G1 — Tue 12:15 PM · F10 · WSA vs A3
@@ -34,6 +35,13 @@ export const SEED_RESULTS: Partial<Record<GameId, GameResult>> = {
     awayScore: null,
     homeScore: null,
     finalizedAt: TUE_GAME_END,
+  },
+  // Premier G6 — Wed 9:30 AM · F9 · ECA (loserOf g2) vs PDG (loserOf g3)
+  'premier.g6': {
+    winner: 'premier.PDG',
+    awayScore: null,
+    homeScore: null,
+    finalizedAt: WED_GAME_END,
   },
   // Prospect G1 — Tue 9:30 AM · F11 · WSA vs CPCA
   'prospect.g1': {
@@ -118,6 +126,13 @@ export const SEED_RESULTS: Partial<Record<GameId, GameResult>> = {
     awayScore: null,
     homeScore: null,
     finalizedAt: TUE_GAME_END,
+  },
+  // Varsity G8 — Wed 9:30 AM · F14 · ECA (loserOf g1) vs A3 (loserOf g6)
+  'varsity.g8': {
+    winner: 'varsity.A3',
+    awayScore: null,
+    homeScore: null,
+    finalizedAt: WED_GAME_END,
   },
   // JV G2 — Tue 10:00 AM · F2 · A3 MS JV vs FTB Academy JV
   'jv.g2': {
