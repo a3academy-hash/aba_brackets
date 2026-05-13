@@ -92,6 +92,13 @@ export const SEED_RESULTS: Partial<Record<GameId, GameResult>> = {
     homeScore: null,
     finalizedAt: WED_GAME_END,
   },
+  // Prospect G12 — Wed 9:30 AM · F12 · A3 (winnerOf g4) vs GPA (winnerOf g6)
+  'prospect.g12': {
+    winner: 'prospect.A3',
+    awayScore: null,
+    homeScore: null,
+    finalizedAt: WED_GAME_END,
+  },
   // Varsity G1 — Tue 9:30 AM · F9 · ECA vs TNXL
   'varsity.g1': {
     winner: 'varsity.TNXL',
