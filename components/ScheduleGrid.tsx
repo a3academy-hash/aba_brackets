@@ -21,6 +21,7 @@ const TIME_ORDER: Record<string, number> = {
   '11:00 AM': 1100,
   '12:15 PM': 1215,
   '1:00 PM':  1300,
+  '1:30 PM':  1330,
   '3:00 PM':  1500,
 };
 

@@ -175,7 +175,7 @@
     "bracket": "LB",
     "gameNumber": 11,
     "date": "2026-05-14",
-    "time": "1:00 PM",
+    "time": "1:30 PM",
     "field": "Field 10",
     "away": {
       "kind": "winnerOf",
@@ -465,7 +465,7 @@
     "bracket": "WB",
     "gameNumber": 15,
     "date": "2026-05-14",
-    "time": "1:00 PM",
+    "time": "1:30 PM",
     "field": "Field 9",
     "away": {
       "kind": "winnerOf",
@@ -482,7 +482,7 @@
     "bracket": "LB",
     "gameNumber": 16,
     "date": "2026-05-14",
-    "time": "1:00 PM",
+    "time": "1:30 PM",
     "field": "Field 11",
     "away": {
       "kind": "winnerOf",
@@ -789,7 +789,7 @@
     "bracket": "WB",
     "gameNumber": 15,
     "date": "2026-05-14",
-    "time": "1:00 PM",
+    "time": "1:30 PM",
     "field": "Field 12",
     "away": {
       "kind": "winnerOf",
@@ -806,7 +806,7 @@
     "bracket": "LB",
     "gameNumber": 16,
     "date": "2026-05-14",
-    "time": "1:00 PM",
+    "time": "1:30 PM",
     "field": "Field 14",
     "away": {
       "kind": "winnerOf",
