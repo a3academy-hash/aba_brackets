@@ -86,6 +86,13 @@ export const SEED_RESULTS: Partial<Record<GameId, GameResult>> = {
     homeScore: null,
     finalizedAt: THU_GAME_END,
   },
+  // Premier G11 — Thu 1:30 PM · F10 · TNXL (winnerOf g10) vs WSA (loserOf g9)
+  'premier.g11': {
+    winner: 'premier.TNXL',
+    awayScore: null,
+    homeScore: null,
+    finalizedAt: THU_GAME_END,
+  },
   // Prospect G1 — Tue 9:30 AM · F11 · WSA vs CPCA
   'prospect.g1': {
     winner: 'prospect.CPCA',
