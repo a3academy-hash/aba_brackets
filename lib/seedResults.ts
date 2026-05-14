@@ -72,6 +72,20 @@ export const SEED_RESULTS: Partial<Record<GameId, GameResult>> = {
     homeScore: null,
     finalizedAt: WED_GAME_END,
   },
+  // Premier G9 — Thu 11:00 AM · F9 (WB Final) · WSA (winnerOf g4) vs GPA (winnerOf g5)
+  'premier.g9': {
+    winner: 'premier.GPA',
+    awayScore: null,
+    homeScore: null,
+    finalizedAt: THU_GAME_END,
+  },
+  // Premier G10 — Thu 11:00 AM · F10 · TNXL (winnerOf g7) vs PDG (winnerOf g8)
+  'premier.g10': {
+    winner: 'premier.TNXL',
+    awayScore: null,
+    homeScore: null,
+    finalizedAt: THU_GAME_END,
+  },
   // Prospect G1 — Tue 9:30 AM · F11 · WSA vs CPCA
   'prospect.g1': {
     winner: 'prospect.CPCA',
@@ -148,6 +162,13 @@ export const SEED_RESULTS: Partial<Record<GameId, GameResult>> = {
     awayScore: null,
     homeScore: null,
     finalizedAt: WED_GAME_END,
+  },
+  // Prospect G13 — Thu 11:00 AM · F11 · Kingsmen (winnerOf g9) vs GPA (loserOf g12)
+  'prospect.g13': {
+    winner: 'prospect.GPA',
+    awayScore: null,
+    homeScore: null,
+    finalizedAt: THU_GAME_END,
   },
   // Prospect G12 — Wed 9:30 AM · F12 · A3 (winnerOf g4) vs GPA (winnerOf g6)
   'prospect.g12': {
