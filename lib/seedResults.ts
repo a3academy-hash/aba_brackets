@@ -13,6 +13,7 @@ import type { Division, GameId, GameResult } from './types';
 // Approximate the actual end of each batch (~2hr after first pitch).
 const TUE_GAME_END = '2026-05-12T15:30:00.000Z';
 const WED_GAME_END = '2026-05-13T15:30:00.000Z';
+const THU_GAME_END = '2026-05-14T15:30:00.000Z';
 
 export const SEED_RESULTS: Partial<Record<GameId, GameResult>> = {
   // Premier G1 — Tue 12:15 PM · F10 · WSA vs A3
@@ -294,6 +295,13 @@ export const SEED_RESULTS: Partial<Record<GameId, GameResult>> = {
     awayScore: null,
     homeScore: null,
     finalizedAt: WED_GAME_END,
+  },
+  // JV G9 — Thu 10:00 AM · F1 (LB Final) · WSA (winnerOf g8) vs TNXL (loserOf g7)
+  'jv.g9': {
+    winner: 'jv.TNXL',
+    awayScore: null,
+    homeScore: null,
+    finalizedAt: THU_GAME_END,
   },
 };
 
