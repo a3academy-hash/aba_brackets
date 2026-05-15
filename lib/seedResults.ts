@@ -14,6 +14,7 @@ import type { Division, GameId, GameResult } from './types';
 const TUE_GAME_END = '2026-05-12T15:30:00.000Z';
 const WED_GAME_END = '2026-05-13T15:30:00.000Z';
 const THU_GAME_END = '2026-05-14T15:30:00.000Z';
+const FRI_GAME_END = '2026-05-15T15:30:00.000Z';
 
 export const SEED_RESULTS: Partial<Record<GameId, GameResult>> = {
   // Premier G1 — Tue 12:15 PM · F10 · WSA vs A3
@@ -316,6 +317,13 @@ export const SEED_RESULTS: Partial<Record<GameId, GameResult>> = {
     awayScore: null,
     homeScore: null,
     finalizedAt: THU_GAME_END,
+  },
+  // Varsity G17 — Fri 9:30 AM · F11 (LB Final) · FTB (winnerOf g16) vs CLUB (loserOf g15)
+  'varsity.g17': {
+    winner: 'varsity.CLUB',
+    awayScore: null,
+    homeScore: null,
+    finalizedAt: FRI_GAME_END,
   },
   // JV G2 — Tue 10:00 AM · F2 · A3 MS JV vs FTB Academy JV
   'jv.g2': {
